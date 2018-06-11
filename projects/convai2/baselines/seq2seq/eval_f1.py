@@ -15,13 +15,13 @@ if __name__ == '__main__':
     parser = setup_args()
     parser.set_params(
         model='seq2seq',
-        model_file='models:convai2/seq2seq/convai2_self_seq2seq_model',
-        dict_file='models:convai2/seq2seq/convai2_self_seq2seq_model.dict',
+        model_file='models:twitter/seq2seq/twitter_seq2seq_model',
+        dict_file='models:twitter/seq2seq/convai2_self_seq2seq_model.dict',
         dict_lower=True,
         batchsize=32,
     )
     opt = parser.parse_args(print_args=False)
-    if opt.get('model_file', '').startswith('models:convai2'):
+    if opt.get('model_file', '').find('twitter/seq2seq/') != -1:
         opt['model_type'] = 'seq2seq'
         fnames = ['convai2_self_seq2seq_model.tgz',
                   'convai2_self_seq2seq_model.dict',
